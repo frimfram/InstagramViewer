@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/imgProfile"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginBottom="5dp"
+        android:src="@android:drawable/ic_menu_myplaces" />
+
+    <TextView
+        android:id="@+id/tvUsername"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/imgProfile"
+        android:paddingTop="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="15dp"
+        android:textColor="#19528C"
+        android:textSize="15sp"
+        android:layout_toRightOf="@+id/imgProfile"
+        android:text="username" />
+
+    <ImageView
+        android:id="@+id/imgPhoto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/imgProfile"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_launcher" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="14dp"
+        android:layout_height="14dp"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/imgPhoto"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:src="@android:drawable/btn_star" />
+
+    <TextView
+        android:id="@+id/tvLikes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/tvCaption"
+        android:layout_marginLeft="5dp"
+        android:layout_toRightOf="@+id/imageView2"
+        android:text="0 likes"
+        android:textColor="#19528C"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/tvCaption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/imageView2"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:ellipsize="end"
+        android:maxLines="3"
+        android:autoLink="all"
+		android:linksClickable="true"
+        android:textColor="#333333"
+        android:text="@string/caption_default_text"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/tvComment1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tvCaption"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:layout_below="@+id/tvCaption"
+        android:textColor="#333333"
+        android:textSize="15sp"
+        android:text="comment1" />
+    <TextView
+        android:id="@+id/tvComment2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tvCaption"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginRight="20dp"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:layout_below="@+id/tvComment1"
+        android:textColor="#333333"
+        android:textSize="15sp"
+        android:text="comment2" />
+
+</RelativeLayout>

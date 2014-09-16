@@ -6,6 +6,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.text.format.DateUtils;
+
 public class InstagramPhoto {
 	public String getUsername() {
 		return username;
@@ -96,11 +98,14 @@ public class InstagramPhoto {
 				photo.likesCount = photoJSON.getJSONObject("likes").getInt(
 						"count");
 			}
+			if (photoJSON.getString("created_time") != null) {				
+				photo.createdTime = Long.parseLong(photoJSON.getString("created_time"));
+			}
 
 			if (photoJSON.getJSONObject("comments") != null) {
-				
-				JSONArray commentsJsonArray = photoJSON.getJSONObject("comments")
-						.getJSONArray("data");
+
+				JSONArray commentsJsonArray = photoJSON.getJSONObject(
+						"comments").getJSONArray("data");
 				int commentsCount = commentsJsonArray.length();
 				JSONObject commentObj;
 				Comment comment;
@@ -118,12 +123,36 @@ public class InstagramPhoto {
 					photo.comments.add(comment);
 
 				}
+				int totalCommentsCount = photoJSON.getJSONObject("comments")
+						.getInt("count");
+				photo.setCommentsCount(totalCommentsCount);
 			}
 		} catch (JSONException e) {
 			e.printStackTrace();
 			return null;
 		}
 		return photo;
+	}
+
+	public int getCommentsCount() {
+		return commentsCount;
+	}
+
+	public void setCommentsCount(int commentsCount) {
+		this.commentsCount = commentsCount;
+	}
+
+	public long getCreatedTime() {
+		return createdTime;
+	}
+
+	public String getCreatedTimeString() {
+		return (String) DateUtils.getRelativeTimeSpanString(createdTime * 1000,
+				System.currentTimeMillis(), DateUtils.SECOND_IN_MILLIS);
+	}
+
+	public void setCreatedTime(long createdTime) {
+		this.createdTime = createdTime;
 	}
 
 	public static ArrayList<InstagramPhoto> fromJson(JSONArray jsonArray) {
@@ -152,5 +181,7 @@ public class InstagramPhoto {
 	private int likesCount;
 	private String prifilePicUrl;
 	private String locationName;
+	private int commentsCount;
 	private ArrayList<Comment> comments;
+	private long createdTime;
 }

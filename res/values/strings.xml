@@ -6,5 +6,10 @@
     <string name="action_settings">Settings</string>
     <string name="popular_photos_caption">Popular Photos</string>
     <string name="caption_default_text">This is a default caption</string>
-	<string name="likes">likes</string>
+    <string name="comment_default">comments</string>
+    <string name="user_default">username</string>
+	<string name="likes">%1$d likes</string>
+	<string name="likes_default">0 likes</string>
+	<string name="comment_html">&lt;font color=\"#19528C\">%1$s&lt;/font> %2$s</string>
+	<string name="view_comments">View all %1$d comments</string>
 </resources>
